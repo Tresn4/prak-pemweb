@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .operators {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .operators button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #e0e0e0;
+        }
+
+        .operators button:hover {
+            background-color: #d6d6d6;
+        }
+
+        .operators button.selected {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator</h1>
+        <div class="input-group">
+            <input type="text" id="num1" placeholder="Angka 1">
+            <input type="text" id="num2" placeholder="Angka 2">
+        </div>
+        <div class="operators">
+            <button onclick="setOperation(this, 'add')">+</button>
+            <button onclick="setOperation(this, 'subtract')">-</button>
+            <button onclick="setOperation(this, 'multiply')">*</button>
+            <button onclick="setOperation(this, 'divide')">/</button>
+            <button onclick="setOperation(this, 'power')">^</button>
+            <button onclick="setOperation(this, 'sqrt')">√</button>
+            <button onclick="setOperation(this, 'modulus')">%</button>
+        </div>
+        <button onclick="calculate()">Hitung</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let selectedOperation = '';
+        
+        function setOperation(element, operation) {
+            selectedOperation = operation;
+            document.querySelectorAll('.operators button').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            switch (selectedOperation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                case 'power':
+                    result = Math.pow(num1, num2);
+                    break;
+                case 'sqrt':
+                    result = Math.sqrt(num1);
+                    break;
+                case 'modulus':
+                    result = num1 % num2;
+                    break;
+                default:
+                    result = 'Pilih operasi terlebih dahulu';
+            }
+
+            document.getElementById('result').innerText = `Hasil: ${result}`;
+        }
+    </script>
+</body>
+</html>
