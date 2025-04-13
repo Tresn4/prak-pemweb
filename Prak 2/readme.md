@@ -19,7 +19,8 @@ Fitur Utama
 - Tampilan dark mode
 - Responsive design
 
-🖼️ Screenshot Aplikasi
+![image](https://github.com/user-attachments/assets/6012e4b2-b4e6-4eb2-89e2-965785e8ba9b)
+
 Tampilan Utama Aplikasi
 
 Teknologi & Fitur ES6+ yang Digunakan
