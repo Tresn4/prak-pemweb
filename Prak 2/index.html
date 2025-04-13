@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Activity Dashboard</h1>
+            <div id="datetime"></div>
+        </header>
+
+        <div class="dashboard">
+            <section class="schedule-section">
+                <h2>Jadwal Kelas</h2>
+                <form id="schedule-form">
+                    <input type="text" id="course-name" placeholder="Nama Mata Kuliah" required>
+                    <input type="text" id="course-day" placeholder="Hari" required>
+                    <input type="time" id="course-time" required>
+                    <input type="text" id="course-room" placeholder="Ruangan" required>
+                    <button type="submit">Tambah</button>
+                </form>
+                <div id="schedule-list" class="card-container"></div>
+            </section>
+
+            <section class="tasks-section">
+                <h2>Daftar Tugas</h2>
+                <form id="task-form">
+                    <input type="text" id="task-name" placeholder="Nama Tugas" required>
+                    <input type="text" id="task-course" placeholder="Mata Kuliah" required>
+                    <input type="date" id="task-deadline" required>
+                    <select id="task-priority">
+                        <option value="low">Rendah</option>
+                        <option value="medium">Sedang</option>
+                        <option value="high">Tinggi</option>
+                    </select>
+                    <button type="submit">Tambah</button>
+                </form>
+                <div id="task-list" class="card-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
